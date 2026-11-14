@@ -1,0 +1,6 @@
+{
+  "name": "TypeRush",
+  "description": "Competitive typing test engine with real-time keystroke telemetry, progression analytics, and Gemini-powered custom error drills.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Default: Cyberpunk Minimalist HUD */
+  --bg-canvas: #0f111a;
+  --bg-surface: #161926;
+  --bg-surface-elevated: #1d2133;
+  --bg-recessed: #0b0d14;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-primary: #00f0ff;
+  --accent-primary-fg: #0b0d14;
+  --accent-primary-soft: rgba(0, 240, 255, 0.12);
+  --accent-primary-glow: rgba(0, 240, 255, 0.28);
+  --status-success: #10b981;
+  --status-success-soft: rgba(16, 185, 129, 0.14);
+  --status-error: #ef4444;
+  --status-error-soft: rgba(239, 68, 68, 0.16);
+  --status-warning: #f59e0b;
+}
+
+[data-theme="light"] {
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-recessed: #eef2f6;
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-primary: #0284c7;
+  --accent-primary-fg: #ffffff;
+  --accent-primary-soft: rgba(2, 132, 199, 0.1);
+  --accent-primary-glow: rgba(2, 132, 199, 0.22);
+  --status-success: #059669;
+  --status-success-soft: rgba(5, 150, 105, 0.12);
+  --status-error: #dc2626;
+  --status-error-soft: rgba(220, 38, 38, 0.12);
+  --status-warning: #d97706;
+}
+
+[data-theme="terminal"] {
+  --bg-canvas: #080c08;
+  --bg-surface: #0f170f;
+  --bg-surface-elevated: #152215;
+  --bg-recessed: #050805;
+  --border-subtle: rgba(74, 222, 128, 0.16);
+  --border-strong: rgba(74, 222, 128, 0.3);
+  --text-primary: #dcfce7;
+  --text-secondary: #86efac;
+  --text-muted: #4ade80;
+  --accent-primary: #22c55e;
+  --accent-primary-fg: #051208;
+  --accent-primary-soft: rgba(34, 197, 94, 0.14);
+  --accent-primary-glow: rgba(34, 197, 94, 0.28);
+  --status-success: #4ade80;
+  --status-success-soft: rgba(74, 222, 128, 0.14);
+  --status-error: #f87171;
+  --status-error-soft: rgba(248, 113, 113, 0.16);
+  --status-warning: #facc15;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono-hud {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes caret-pulse {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.25;
+  }
+}
+
+.typing-caret {
+  animation: caret-pulse 1.05s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-caret {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Custom thin scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
